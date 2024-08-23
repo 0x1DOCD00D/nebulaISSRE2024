@@ -33,7 +33,7 @@ We had to simplify the process to make it easier for the reviewers to evaluate t
 
 Follow this video for instructions: https://www.loom.com/share/0261298620f7442283a1cbc6048cef93?sid=0b1fefd1-015c-4cfa-bb83-0f69c7423d96
 
-## Prerequisites
+## Environment Setup
 Make sure that the following dependencies are installed in your environment.
 
 - Java JDK 8 (1.8.0_331), if you use a different JDK version, please use this [link](https://stackoverflow.com/questions/21964709/how-to-set-or-change-the-default-java-jdk-version-on-macos) to switch. 
@@ -42,7 +42,7 @@ Make sure that the following dependencies are installed in your environment.
 - [Python](https://www.python.org) 2.7.16
 - [Docker](https://www.docker.com/products/docker-desktop/)
 
-## Running the experiments
+## Getting Started
 To run the experiments, you need to follow the steps below.
 
 ### Step 1: Run the Cinnamon Telemetry Agent and the GA Optimizer
@@ -63,7 +63,7 @@ docker compose up
 
 Now you will have the Prometheus Backend Server to collect the run-time metrics information, the Grafana Dashboard to visualize the metrics, and the GA Optimizer to optimize the system.
 
-### Step 2: Run Nebula
+### Step 2: Reproducibility Instructions
 Now you can run the Nebula system. 
 To do so, open a new terminal window and run the following command.
 
@@ -85,8 +85,8 @@ The configuration of the demo is contained in the `nebula_config` directory.
 Please select actors, messages, orchestration, clustering according.
 
 
-# Project structure
-The project is composed by the following directories:
+# Artifact Description
+The artifact is composed by the following directories:
 
 - `input`: contains the input DSL given to Nebula.
 - `nebula_dsl_generator`: contains the project to randomly generate the DSL
@@ -139,8 +139,6 @@ sbt run
 ### Cinnamon Telemetry Agent
 In order to properly run Nebula and collect the metrics, you need to setup Lightbend Telemtry.
 Since it is a commercial software, you need a license: https://developer.lightbend.com/docs/telemetry/current//setup/setup.html
-
-We removed the credentials and the .jar of the Agent for this repository not to violate the license agreement of the software.
 
 Before running our Cinnamon Instrumentation we have to install Docker
 https://docs.docker.com/get-docker/
