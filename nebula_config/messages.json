@@ -1,0 +1,7 @@
+[ {
+  "messageName" : "StressCPU",
+  "messageArgs" : [ ]
+}, {
+  "messageName" : "StressRAM",
+  "messageArgs" : [ ]
+} ]

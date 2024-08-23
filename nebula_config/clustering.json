@@ -1,0 +1,10 @@
+{
+ "transport" : "aeron-udp",
+ "hostname" : "localhost",
+ "port" : 0,
+ "seedNodes" : [
+ "akka://Nebula@localhost:1234",
+ "akka://Nebula@localhost:1235"
+],
+ "initPorts" : [1234,1235]
+}

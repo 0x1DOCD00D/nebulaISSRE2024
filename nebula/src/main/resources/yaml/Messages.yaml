@@ -1,0 +1,10 @@
+---
+- messageName: Init
+  messageArgs: [ ]
+- messageName: Authentication
+  messageArgs:
+    - argName: email
+      argType: String
+    - argName: password
+      argType: String
+

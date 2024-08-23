@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pymoo
+numpy
+firebase-admin
+prometheus-api-client
+mangum

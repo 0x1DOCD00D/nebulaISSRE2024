@@ -1,0 +1,58 @@
+[ {
+  "actorName" : "actor_0",
+  "actorArgs" : [ ],
+  "actorVars" : [ ],
+  "methods" : [ {
+    "methodName" : "receive",
+    "customObject" : [ ],
+    "methodReturnType" : "PartialFunction[Any, Unit]",
+    "methodArgs" : [ ],
+    "caseList" : [ {
+      "className" : "StressCPU",
+      "executionCode" : "\n  val sleepTime: Long = 100 * 1000000L // convert to nanoseconds\n  val startTime: Long = System.nanoTime\n  while ((System.nanoTime - startTime) < sleepTime) {}\n  val result = protoMessage\n",
+      "transitions" : [ "actor_1", "actor_2" ]
+    }, {
+      "className" : "StressRAM",
+      "executionCode" : "val byte: Seq[Array[Byte]] = Seq()\n var iterator: Int = 0\n  while (iterator <= 100) {\n    println(\"frees memory: \")\n    val b: Array[Byte] = new Array[Byte](1048576)\n    byte :+ (b)\n    val rt: Runtime = Runtime.getRuntime\n    println(\"free memory: \" + rt.freeMemory)\n    iterator = iterator + 1\n}\nval result = protoMessage\n",
+      "transitions" : [ "actor_1", "actor_2" ]
+    } ]
+  } ]
+}, {
+  "actorName" : "actor_1",
+  "actorArgs" : [ ],
+  "actorVars" : [ ],
+  "methods" : [ {
+    "methodName" : "receive",
+    "customObject" : [ ],
+    "methodReturnType" : "PartialFunction[Any, Unit]",
+    "methodArgs" : [ ],
+    "caseList" : [ {
+      "className" : "StressCPU",
+      "executionCode" : "\n  val sleepTime: Long = 100 * 1000000L // convert to nanoseconds\n  val startTime: Long = System.nanoTime\n  while ((System.nanoTime - startTime) < sleepTime) {}\n  val result = protoMessage\n",
+      "transitions" : [ "actor_2",  "actor_0"]
+    }, {
+      "className" : "StressRAM",
+      "executionCode" : "val byte: Seq[Array[Byte]] = Seq()\n var iterator: Int = 0\n  while (iterator <= 100) {\n    println(\"frees memory: \")\n    val b: Array[Byte] = new Array[Byte](1048576)\n    byte :+ (b)\n    val rt: Runtime = Runtime.getRuntime\n    println(\"free memory: \" + rt.freeMemory)\n    iterator = iterator + 1\n}\nval result = protoMessage\n",
+      "transitions" : [ "actor_2", "actor_0" ]
+    } ]
+  } ]
+}, {
+  "actorName" : "actor_2",
+  "actorArgs" : [ ],
+  "actorVars" : [ ],
+  "methods" : [ {
+    "methodName" : "receive",
+    "customObject" : [ ],
+    "methodReturnType" : "PartialFunction[Any, Unit]",
+    "methodArgs" : [ ],
+    "caseList" : [ {
+      "className" : "StressCPU",
+      "executionCode" : "\n  val sleepTime: Long = 100 * 1000000L // convert to nanoseconds\n  val startTime: Long = System.nanoTime\n  while ((System.nanoTime - startTime) < sleepTime) {}\n  val result = protoMessage\n",
+      "transitions" : [ "actor_1", "actor_0"]
+    }, {
+      "className" : "StressRAM",
+      "executionCode" : "val byte: Seq[Array[Byte]] = Seq()\n var iterator: Int = 0\n  while (iterator <= 100) {\n    println(\"frees memory: \")\n    val b: Array[Byte] = new Array[Byte](1048576)\n    byte :+ (b)\n    val rt: Runtime = Runtime.getRuntime\n    println(\"free memory: \" + rt.freeMemory)\n    iterator = iterator + 1\n}\nval result = protoMessage\n",
+      "transitions" : [ "actor_1", "actor_0"]
+    } ]
+  } ]
+} ]
